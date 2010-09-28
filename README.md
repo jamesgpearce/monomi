@@ -2,10 +2,10 @@
 
 A.K.A. MObile NOde MIddleware
 
-Monomi is middleware for [Connect](http://github.com/senchalabs/connect)
-(node.js) that provides tools for handling mobile (and other types of) browsers.
+Monomi is middleware for node.js/[Connect](http://github.com/senchalabs/connect)
+that provides tools for handling mobile (and other types of) browsers.
 
-Monomi can which type of browser the client is using to access the node.js
+Monomi detects which type of browser the client is using to access the node.js
 server, by providing the 'detectBrowserType' middleware. It places the type of
 browser (as a string) in the request.monomi.browserType property:
 
@@ -30,8 +30,8 @@ browser (as a string) in the request.monomi.browserType property:
 
 For example, if this server is accessed with an iPad, the browser type is
 'tablet'; if accessed with an iPhone or Android handset, the result is 'touch';
-if accessed by any other mobile device, it is 'mobile'; and the value defaults
-to 'desktop'.
+if accessed by any other mobile device, it is 'mobile'; and it defaults to
+'desktop'.
 
 Monomi is sensitive to mobile carrier transcoders that move device headers
 into their 'x-device-*' equivalents.
