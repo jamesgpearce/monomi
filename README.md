@@ -1,20 +1,20 @@
-# Monomi
+# monomi
 
 A.K.A. MObile NOde MIddleware
 
-Monomi is middleware for node.js/[Connect](http://github.com/senchalabs/connect)
+monomi is middleware for node.js/[Connect](http://github.com/senchalabs/connect)
 that provides tools for handling mobile (and other types of) browsers.
 
-Monomi detects which type of browser the client is using to access the node.js
+monomi detects which type of browser the client is using to access the node.js
 server, by providing the 'detectBrowserType' middleware. It places the type of
 browser (as a string) in the request.monomi.browserType property:
 
     var Connect = require("connect"),
-        Monomi = require("monomi");
+        monomi = require("monomi");
     
     Connect.createServer(
     
-        Monomi.detectBrowserType(),
+        monomi.detectBrowserType(),
     
         function(request, response, next) {
             response.writeHead(200, {'Content-Type': 'text/plain'});
@@ -33,12 +33,12 @@ For example, if this server is accessed with an iPad, the browser type is
 if accessed by any other mobile device, it is 'mobile'; and it defaults to
 'desktop'.
 
-Monomi is sensitive to mobile carrier transcoders that move device headers
+monomi is sensitive to mobile carrier transcoders that move device headers
 into their 'x-device-*' equivalents.
 
 ## Changing groupings
 
-Over time, and as new mobile browsers come out, Monomi will continue to provide
+Over time, and as new mobile browsers come out, monomi will continue to provide
 support for recognizing them. In the meantime, applications can override how
 they wish the recognition to work.
 
@@ -64,13 +64,13 @@ The options can be passed like this:
 
     }
     
-The 'order' property tells Monomi which order to run the recognitions, looking
+The 'order' property tells monomi which order to run the recognitions, looking
 for a positive result. For example, the iPhone will match both the 'touch' and
 'mobile' groups by default, but the ordering ensures that the first, 'touch', is
 returned.
 
 The 'default' property specifies what string should be returned if none of the
-other browser types match. (However, Monomi's default desktop recognition
+other browser types match. (However, monomi's default desktop recognition
 returns true, so unless you alter that algorithm, 'unknown' will never get
 returned.)
 
@@ -88,7 +88,7 @@ indicate that the device is a tablet.
 
 Other headers can also be matched against regular expressions, but you must also
 provide an 'order' property that indicates which order to apply the regex
-conditions. For example:
+conditions in. For example:
 
     'mobile': {
         'order':['x-wap-profile', 'profile', 'accept', 'user-agent'],
